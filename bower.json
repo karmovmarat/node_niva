@@ -5,11 +5,14 @@
   "authors": [
     "Karmov Marat <https://github.com/karmovmarat/node_niva>"
   ],
-  "description": "node-niva boilerplate for html+js+css apps",
-  "moduleType": [
-    "globals"
-  ],
   "license": "MIT",
+  "ignore":[
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
     "normalize.css": "*",
     "jquery": "2.*"

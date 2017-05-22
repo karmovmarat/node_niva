@@ -1,5 +1,6 @@
 # игнорируем временные файлы.
 *~
 _devil.png
-
+node_modules
+bower_components
 

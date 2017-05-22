@@ -24,8 +24,8 @@ var path = {
     },
     src: {
         html: 'src/*.html',
-        js: 'src/js/main.js',
-        style: 'src/style/main.scss',
+        js: 'src/js/*.js',   
+        style: 'src/style/*.*', 
         img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
@@ -68,8 +68,7 @@ gulp.task('js:build', function () {
     gulp.src(path.src.js) 
         .pipe(rigger()) 
         .pipe(sourcemaps.init()) 
-        .pipe(uglify()) 
-        .pipe(sourcemaps.write()) 
+        .pipe(uglify())    // добавить после этой строки если нужны карты .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.js))
         .pipe(reload({stream: true}));
 });
@@ -80,12 +79,11 @@ gulp.task('style:build', function () {
         .pipe(sass({
             includePaths: ['src/style/'],
             outputStyle: 'compressed',
-            sourceMap: true,
+            sourceMap: true, // false
             errLogToConsole: true
         }))
         .pipe(prefixer())
-        .pipe(cssmin())
-        .pipe(sourcemaps.write())
+        .pipe(cssmin()) // добавить если нужны карты .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css))
         .pipe(reload({stream: true}));
 });
